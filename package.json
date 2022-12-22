@@ -1,0 +1,36 @@
+{
+  "name": "mvc-tech-blog",
+  "version": "1.0.0",
+  "description": "MVC Tech Blog that allows a user to post, update, and delete posts as well as log in and out",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node seeds/seed.js",
+    "lint": "npx eslint **/*.js --quiet;",
+    "test": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tooboi/MVC-Tech-Blog.git"
+  },
+  "author": "Tooboi",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.9.0"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "connect-session-sequelize": "^7.1.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "express-session": "^1.17.1",
+    "handlebars": "^4.7.6",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.3.5"
+  },
+  "bugs": {
+    "url": "https://github.com/Tooboi/MVC-Tech-Blog/issues"
+  },
+  "homepage": "#"
+}
