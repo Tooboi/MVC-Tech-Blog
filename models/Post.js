@@ -11,6 +11,10 @@ Post.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    post_header: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     post_body: {
       type: DataTypes.STRING,
       allowNull: false,
