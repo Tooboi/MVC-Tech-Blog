@@ -16,7 +16,9 @@
   "author": "Tooboi",
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^7.9.0"
+    "eslint": "^7.9.0",
+    "eslint-config-prettier": "^6.15.0",
+    "prettier": "^2.1.2"
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
