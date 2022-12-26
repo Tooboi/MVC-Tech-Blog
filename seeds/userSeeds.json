@@ -1,26 +1,26 @@
 [
   {
-    "username": "Elfo",
+    "name": "Elfo",
     "email": "imElfo@gmail.com",
     "password": "password123"
   },
   {
-    "username": "Cinderella",
+    "name": "Cinderella",
     "email": "princess@gmail.com",
     "password": "password123"
   },
   {
-    "username": "GreenGiant",
+    "name": "GreenGiant",
     "email": "beanie@gmail.com",
     "password": "password123"
   },
   {
-    "username": "Finn",
+    "name": "Finn",
     "email": "adventure@gmail.com",
     "password": "password123"
   },
   {
-    "username": "Dusty",
+    "name": "Dusty",
     "email": "paradise@gmail.com",
     "password": "password123"
   }

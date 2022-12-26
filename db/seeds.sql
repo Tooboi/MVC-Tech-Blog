@@ -1,4 +1,4 @@
-INSERT INTO user (username, email, password)
+INSERT INTO user (name, email, password)
 VALUES ("Elfo", "imElfo@gmail.com", "password123"),
         ("Cinderella", "princess@gmail.com", "password123"),
         ("GreenGiant", "beanie@gmail.com", "password123"),
