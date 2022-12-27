@@ -29,8 +29,5 @@
     "express-session": "^1.17.1",
     "mysql2": "^2.2.5",
     "sequelize": "^6.3.5"
-  },
-  "bugs": {
-    "url": "https://github.com/Tooboi/MVC-Tech-Blog/issues"
   }
 }
