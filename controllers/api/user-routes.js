@@ -6,6 +6,24 @@ router.get('/', async (req, res) => {
   return res.json(userData);
 });
 
+router.post('/signup', async (req, res) => {
+  try {
+    const userData = await User.create({
+      name: req.body.name,
+      email: req.body.email,
+      password: req.body.password
+    });
+
+    req.session.save(() => {
+      req.session.loggedIn = true;
+      req.session.user_id = userData.id;
+      res.status(200).json(userData);
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.post('/login', async (req, res) => {
   try {
     // Find the user who matches the posted e-mail address

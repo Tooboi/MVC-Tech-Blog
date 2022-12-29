@@ -1,0 +1,99 @@
+:root {
+  --ff: 'Nunito', sans-serif;
+
+  /* font-family: "Alumni Sans", sans-serif;
+    font-family: "Fraunces", serif;
+    font-family: "Grenze", serif;
+    font-family: "Montserrat", sans-serif;
+    font-family: "MuseoModerno", cursive;
+    font-family: "Nunito", sans-serif;
+    font-family: "Roboto", sans-serif; */
+
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+  --fw-black: 900;
+
+  --line-2: 0.125rem;
+  --line-4: 1.25rem;
+
+  --col-bg: #1b4462;
+  /* element bg */
+  --col-surface: #26608a;
+  /* one level up */
+  --col-surface2: #378ac6;
+  /* primary colors */
+  --col-p-200: #f3baa3;
+  --col-p-500: #fc974d;
+  --col-p-700: #e78306;
+  /* secondary colors */
+  --col-s-200: #b3f3a3;
+  --col-s-500: #5afc4d;
+  --col-s-700: #06e714;
+
+  /* text colors */
+  --col-on-surface: #f8ecea;
+  --col-on-primary: #080a0f;
+  --col-on-secondary: #080a0f;
+}
+body {
+  background-color: var(--col-bg);
+  color: var(--col-on-surface);
+  /* font-family: var(--ff); */
+}
+nav {
+    background-color: var(--col-surface2);
+}
+::-webkit-scrollbar {
+  width: 0px;
+}
+a {
+  color: var(--col-on-surface);
+}
+.btn-primary {
+  color: var(--col-on-primary);
+  background-color: var(--col-p-500);
+  border-color: var(--col-p-700);
+}
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus {
+  color: var(--col-on-primary);
+  background-color: var(--col-p-500);
+  border-color: var(--col-p-700);
+  box-shadow: 0 0 0 0.25rem var(--col-p-200);
+}
+.btn-primary:active:focus {
+  box-shadow: 0 0 0 0.25rem var(--col-p-700);
+}
+.btn-secondary {
+  color: var(--col-on-secondary);
+  background-color: var(--col-s-500);
+  border-color: var(--col-s-700);
+}
+.btn-secondary:hover,
+.btn-secondary:active,
+.btn-secondary:focus {
+  color: var(--col-on-secondary);
+  background-color: var(--col-s-500);
+  border-color: var(--col-s-700);
+  box-shadow: 0 0 0 0.25rem var(--col-s-200);
+}
+.btn-secondary:active:focus {
+  box-shadow: 0 0 0 0.25rem var(--col-s-700);
+}
+.form-control {
+  background-color: var(--col-on-surface);
+  color: var(--col-on-primary);
+}
+.form-control:focus {
+  color: var(--col-on-primary);
+  background-color: var(--col-on-surface);
+  border-color: var(--col-on-primary);
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem var(--col-p-200);
+}
+.post-header {
+    color: var(--col-on-primary);
+}

@@ -1,0 +1,19 @@
+    <div class="">
+        <h2 class="pb-4">{{name}}</h2>
+        <a href="/dashboard/create/"><button id="create-post" class="btn btn-primary">New Post</button></a>
+        <hr>
+    </div>    
+{{#if post.length}}
+    
+
+    {{#each post}}
+        {{> post-data posts}}
+        
+            <a href="/dashboard/edit/{{posts.id}}"><button class="button mb-5 ml-5 is-warning">edit post</button></a>
+        </div>
+    {{/each}}
+
+{{else}}
+<h6 class="pb-4 has-text-centered is-italic">nothing to see here - try posting something</h6>
+
+{{/if}}
