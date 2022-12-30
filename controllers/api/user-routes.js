@@ -1,27 +1,33 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const withAuth = require('../../utils/auth');
 
-router.get('/', async (req, res) => {
-  const userData = await User.findAll();
-  return res.json(userData);
+router.get('/', (req, res) => {
+  // Access our User model and run .findAll() method
+  User.findAll({
+    attributes: { exclude: ['password'] },
+  })
+    .then((userData) => res.json(userData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
-router.post('/signup', async (req, res) => {
-  try {
-    const userData = await User.create({
-      name: req.body.name,
-      email: req.body.email,
-      password: req.body.password
-    });
-
+router.post('/', (req, res) => {
+  User.create({
+    name: req.body.name,
+    email: req.body.email,
+    password: req.body.password,
+  }).then((userData) => {
     req.session.save(() => {
-      req.session.loggedIn = true;
       req.session.user_id = userData.id;
-      res.status(200).json(userData);
+      req.session.name = userData.name;
+      req.session.logged_in = true;
+      console.log(req.session);
+      res.json(userData);
     });
-  } catch (err) {
-    res.status(500).json(err);
-  }
+  });
 });
 
 router.post('/login', async (req, res) => {
@@ -68,6 +74,5 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
-
 
 module.exports = router;

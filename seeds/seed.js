@@ -3,8 +3,6 @@ const { User, Post, Comment } = require('../models');
 const userSeedData = require('./userSeeds.json');
 const postSeedData = require('./postSeeds.json');
 const commentSeedData = require('./commentSeeds.json');
-console.log(User);
-console.log(userSeedData);
 
 const seedDB = async () => {
   await sequelize.sync({ force: true });
