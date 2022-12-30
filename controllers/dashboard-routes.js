@@ -4,7 +4,7 @@ const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, (req, res) => {
-  console.log(req.session);
+  console.log(req.session.user_id);
 
   Post.findAll({
     where: {
@@ -20,6 +20,10 @@ router.get('/', withAuth, (req, res) => {
           attributes: ['name'],
         },
       },
+      {
+        model: User,
+        attributes: ['name']
+      }
     ],
   })
     .then((dbPostData) => {

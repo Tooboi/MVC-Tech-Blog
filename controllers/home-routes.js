@@ -5,7 +5,6 @@ const withAuth = require('../utils/auth');
 
 // Prevent non logged in users from viewing the homepage
 router.get('/', (req, res) => {
-
   console.log(req.session);
 
   Post.findAll({
@@ -16,9 +15,13 @@ router.get('/', (req, res) => {
         attributes: ['id', 'post_id', 'comment_body', 'user_id'],
         include: {
           model: User,
-          attributes: ['name'],
+          attributes: ['id', 'name'],
         },
       },
+      {
+        model: User,
+        attributes: ['name']
+      }
     ],
   })
     .then((dbPostData) => {
@@ -33,7 +36,6 @@ router.get('/', (req, res) => {
       res.status(500).json(err);
     });
 });
-
 
 router.get('/login', (req, res) => {
   // If a session exists, redirect the request to the homepage

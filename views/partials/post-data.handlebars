@@ -1,24 +1,8 @@
-<div class="card mb-6">
-  <header class="card-header card-header-title has-background-grey-lighter">
-    
-        <div class="column">
-            <p class="post-header">{{post_header}}</p>
-      <a href="/post/{{id}}"  class="">Edit</a></p>
-      </div>
-
-      <div class="column">
-      <span class=""> </span>
-      </div>
-    
-  </header>
-
-    <div class="card-content">
-        <div class="content has-text-justified">
-            {{post_body}}
-        </div>
-            <div class="is-pulled-right">
-                <b>{{user.name}}</b> | 
-                 {{!-- | {{format_date created_at}} | <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a> --}}
-            </div>
-        
-    </div>
+<div class="card my-3">
+  <h5 class="card-header">{{user.name}}</h5>
+  <div class="card-body">
+    <h5 class="card-title">{{post_header}}</h5>
+    <p class="card-text">{{post_body}}</p>
+    {{!-- <a href="/post/{{id}}" class="text-decoration-none">Edit</a> --}}
+  </div>
+</div>

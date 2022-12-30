@@ -18,7 +18,7 @@
       <div class='container-fluid'>
         <h1 class='m-0'><a href='/' class='text-decoration-none'>Tech Blog</a></h1>
 
-        <form class='d-flex align-items-center'>
+        <form class='d-flex align-items-center mb-0'>
           {{#if logged_in}}
             <a href='/dashboard' class='text-decoration-none px-2'>Dashboard</a>
             <a href='/' class='text-decoration-none px-2'>Home</a>
@@ -29,17 +29,13 @@
         </form>
       </div>
     </nav>
+    <main class='container container-fluid mt-5'>
+      <!-- Render the sub layout -->
+      {{{body}}}
+    </main>
+    <footer>
 
-    <div class='flex-column justify-space-around'>
-
-      <main class='container container-fluid mt-5'>
-        <!-- Render the sub layout -->
-        {{{body}}}
-      </main>
-      <footer>
-
-      </footer>
-    </div>
+    </footer>
 
     <!-- Render script for logged in users only -->
     {{#if logged_in}}
