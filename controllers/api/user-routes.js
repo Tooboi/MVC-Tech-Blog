@@ -30,6 +30,40 @@ router.post('/', (req, res) => {
   });
 });
 
+router.get('/:id', (req, res) => {
+  User.findOne({
+    attributes: { exclude: ['password'] },
+    where: {
+      id: req.params.id,
+    },
+    include: [
+      {
+        model: Post,
+        attributes: ['id', 'post_header', 'post_body'],
+      },
+      {
+        model: Comment,
+        attributes: ['id', 'post_id', 'comment_body'],
+        include: {
+          model: Post,
+          attributes: ['post_header'],
+        },
+      },
+    ],
+  })
+    .then((dbUserData) => {
+      if (!dbUserData) {
+        res.status(404).json({ message: 'No user found with this id' });
+        return;
+      }
+      res.json(dbUserData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 router.post('/login', async (req, res) => {
   try {
     // Find the user who matches the posted e-mail address
