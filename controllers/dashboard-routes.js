@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const sequelize = require('../config/connection');
+// const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
@@ -17,12 +17,12 @@ router.get('/', withAuth, (req, res) => {
         attributes: ['id', 'post_id', 'comment_body', 'user_id'],
         include: {
           model: User,
-          attributes: ['name'],
+          attributes: ['id', 'name'],
         },
       },
       {
         model: user,
-        attributes: ['name']
+        attributes: ['id', 'name']
       }
     ],
   })
@@ -35,6 +35,44 @@ router.get('/', withAuth, (req, res) => {
       });
     })
     .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+router.get('/create/', withAuth, (req, res) => {
+  Post.findAll({
+    where: {
+      // use the ID from the session
+      user_id: req.session.user_id
+    },
+    attributes: [
+      'id',
+      'post_header',
+      'post_body',
+      'user_id'
+    ],
+    include: [
+      {
+        model: Comment,
+        attributes: ['id', 'post_id', 'comment_body', 'user_id'],
+        include: {
+          model: User,
+          attributes: ['id', 'name']
+        }
+      },
+      {
+        model: User,
+        attributes: ['id', 'name']
+      }
+    ]
+  })
+    .then(dbPostData => {
+      // serialize data before passing to template
+      const posts = dbPostData.map(post => post.get({ plain: true }));
+      res.render('create-post', { posts, logged_in: true });
+    })
+    .catch(err => {
       console.log(err);
       res.status(500).json(err);
     });

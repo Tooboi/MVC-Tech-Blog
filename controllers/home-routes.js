@@ -3,7 +3,6 @@ const sequelize = require('../config/connection');
 const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
-// Prevent non logged in users from viewing the homepage
 router.get('/', (req, res) => {
   console.log(req.session);
 
@@ -56,6 +55,8 @@ router.get('/signup', (req, res) => {
 
   res.render('signup');
 });
+
+
 
 router.get('/dashboard', withAuth, async (req, res) => {
   try {

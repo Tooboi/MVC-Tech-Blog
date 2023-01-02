@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "watch": "nodemon server.js",
     "seed": "node seeds/seed.js",
     "lint": "npx eslint **/*.js --quiet;",
     "test": "npm run lint"
